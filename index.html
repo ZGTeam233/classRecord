@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逆转！学霸法庭记录 - 呈上证据！</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <div class="tracker-container">
+        <header>
+            <h1>学霸法庭记录</h1>
+            <input type="date" id="date-selector">
+        </header>
+
+        <div id="chart-panel">
+            <div class="chart-box">
+                <h3>当日证据呈上率 (学生数 / 总数)</h3>
+                <div class="chart-container">
+                    <canvas id="daily-completion-chart"></canvas>
+                </div>
+            </div>
+            <div class="chart-box">
+                <h3>历史辩护趋势 (近7日)</h3>
+                <div class="chart-container">
+                    <canvas id="historical-trend-chart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div id="control-panel">
+            <div class="control-group">
+                <button id="batch-recitation-toggle">
+                    <i class="fa-solid fa-gavel"></i> 呈上证据 (全选/清空)
+                </button>
+                <button id="batch-review-toggle">
+                    <i class="fa-solid fa-hand-point-up"></i> 核心证言 (全选/清空)
+                </button>
+            </div>
+            
+            <div class="control-group">
+                <button id="export-data" class="data-button">
+                    <i class="fa-solid fa-file-export"></i> 导出卷宗 (JSON)
+                </button>
+                <label for="import-file" class="data-button">
+                    <i class="fa-solid fa-file-import"></i> 导入卷宗
+                </label>
+                <input type="file" id="import-file" accept=".json" style="display: none;">
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="student-table" id="tracker-table">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>受审学生</th>
+                        <th>证物 (Recitation)</th>
+                        <th>证言 (Review)</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    <div id="npc-dialog-overlay">
+        <div class="npc-dialog">
+            <img id="npc-avatar" src="" alt="角色立绘">
+            <h3 id="npc-name"></h3>
+            <p id="npc-quote"></p>
+            <button onclick="hideNpcDialog()">明白了！</button>
+        </div>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+
+</body>
+</html>
